@@ -1,11 +1,14 @@
 package com.cydeo.liveWeekend.week1;
 
+import com.cydeo.utilities.HrTestBase;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.Test;
 
-public class P01_SimpleGETRequest {
+import static io.restassured.RestAssured.*;
+
+public class P01_SimpleGETRequest extends HrTestBase {
     /**
      * Requirements:
      * - Given accept type is Json
@@ -35,11 +38,11 @@ public class P01_SimpleGETRequest {
 //* - And base URI: http://34.226.136.145:1000/ords/hr
 //* - When user sends GET request to endpoints:/regions
 
-Response response = RestAssured.given()
-                                    .log().uri()
-                                    .accept(ContentType.JSON)
-                                .when()
-                                    .get("/regions");
+Response response = given()
+                        .log().uri()
+                        .accept(ContentType.JSON)
+                    .when()
+                        .get("/regions");
 
 
 //* - Store the response in Response Object that comes from GET Request
