@@ -9,7 +9,7 @@ public class Homework1 extends HrTestBase {
      * Task 1 :
      * - Given accept type is Json
      * - And base URI: http://34.226.136.145:1000/ords/hr
-     * - When users sends request to endpoints:/countries/US
+     * - When users sends GET request to endpoints:/countries/US
      * - Then status code is 200
      * - And Content - Type is application/json
      * - And response contains United States of America
@@ -18,14 +18,14 @@ public class Homework1 extends HrTestBase {
      * Task 2 : NEGATIVE TESTS
      * - Given accept type is Json
      * - And base URI: http://34.226.136.145:1000/ords/hr
-     * - When users sends request to endpoints: /employees/1
+     * - When users sends GET request to endpoints: /employees/1
      * - Then status code is 404
 
 
      * Task 3 :
      * - Given Accept type  is Json
      * - And base URI: http://34.226.136.145:1000/ords/hr
-     * - When users sends request to endpoints:/regions/1
+     * - When users sends GET request to endpoints:/regions/1
      * - Then status code is 200
      * - And Content - Type is application/json
      * - And response contains Europe
