@@ -3,6 +3,7 @@ package com.cydeo.liveLabs.week26.morning;
 import com.cydeo.utilities.HrTestBase;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
+import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import org.apache.http.HttpStatus;
 import org.junit.jupiter.api.Assertions;
@@ -84,8 +85,43 @@ public class Homework1 extends HrTestBase {
 
     }
 
-    
+    @Test
+    public void task3() {
 
+//* - Given Accept type  is Json
+//* - And base URI: http://34.226.136.145:1000/ords/hr
+//* - When users sends GET request to endpoints:/regions/1
+
+Response response = given().accept(ContentType.JSON)
+                           .log().all()
+                    .when().get("/regions/1");
+
+//* - Then status code is 200
+    //OPT1
+    assertEquals(200, response.getStatusCode());
+    //OPT2
+    assertEquals(200, response.statusCode());
+
+//* - And Content - Type is application/json
+        assertEquals(ContentType.JSON.toString(),response.contentType());
+
+//* - And response contains Europe
+        //OPT1
+        assertTrue(response.asString().contains("Europe"));
+        //OPT2
+        JsonPath jsonPath = response.jsonPath();
+        assertEquals("Europe",jsonPath.getString("region_name") );
+
+
+//* - And header should contains Date
+        assertTrue(response.headers().hasHeaderWithName("Date"));
+
+//* - And "Transfer-Encoding" should be "chunked"
+        assertEquals("chunked",response.header("Transfer-Encoding"));
+
+
+
+    }
 
 }
 
