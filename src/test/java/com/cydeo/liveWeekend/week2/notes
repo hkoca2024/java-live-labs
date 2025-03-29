@@ -1,0 +1,105 @@
+API Week 2
+
+10:00 - 10:45
+11:00 - 11:45
+--Lunch&Long Break--
+1:15 - 2:00
+2:15 - 3:00
+3:15 - 4:00
+    .
+    .
+    .
+
+Last Week Review:
+Stage 1: Introduction to APIs
+Stage 2: API Test Automation
+               1. Understand Requirements
+               2. Read API Documentation
+                       Base URL and Endpoints
+                       Parameters
+                       Headers (Metadata)
+                       HTTP Methods (CRUD Operations)
+                       Status Codes
+               3.Perform Manual Testing with Postman
+               4. Begin Automation Testing with Rest Assured Library
+Stage 3: Integration with Cucumber-JUnit (BDD approach)
+Stage 4: Two-Week Sprint Cucumber Project
+
+
+    SIMPLE REQUEST
+    We handled at week1
+
+This Week:
+    PATH PARAM
+    (Show from fake store api swagger:https://api.escuelajs.co/docs#/ /products endpoint and /products/{id} endpoints difference:
+        -> Returns single set of data from list of resources
+        -> It is part of URL
+        -> /api/products/ --> returns all products
+        -> /api/products/{id} --> returns single product
+        -> /api/products/2 --> returns single product
+
+    What is going on behind the scene?
+    We are typing a query and sending it to get data:
+        public static void getProduct(int id){
+
+            SELECT * FROM PRODUCTS
+            WHERE ID=id;
+
+        }
+
+    QUERY PARAM
+        --> We are not always getting data just path param for example library application sometimes we need to have how many books we have so path param is enough but if you would like to add books we should send some key and values or maybe you should call that specific book so you need to filter like:
+            Book Name=Blindness
+            Author=Jose Saramago
+
+        -> It filters data based on K&V which is provided into API doc
+        -> KEY and VALUE needs to be defined in API doc based on endpoints
+        -> It is NOT part of URL and starts after ?
+        -> /products
+        ? -> End Of URL
+        offset=0   --> K&V
+        &
+        limit=10   --> K&V
+
+
+    VERIFY RESPONSES
+        - Contains  --> not suggested
+        - response.path()
+        - jsonPath()
+
+next weeks:
+        - Hamcrest Matchers
+        - Deserialization to POJO
+        - Serialization
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
