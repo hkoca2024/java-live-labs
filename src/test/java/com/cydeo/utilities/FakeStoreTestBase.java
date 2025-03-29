@@ -6,7 +6,7 @@ import org.junit.jupiter.api.BeforeAll;
 
 import static io.restassured.RestAssured.*;
 
-public class FakeStoreTestBase {
+public abstract class FakeStoreTestBase {
 
     @BeforeAll
     public static void init() {
