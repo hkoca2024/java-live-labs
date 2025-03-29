@@ -31,7 +31,7 @@ Stage 4: Two-Week Sprint Cucumber Project
 
 This Week:
     PATH PARAM
-    (Show from fake store api swagger:https://api.escuelajs.co/docs#/ /products endpoint and /products/{id} endpoints difference:
+    (example from fake store api swagger:https://api.escuelajs.co/docs#/ /products endpoint and /products/{id} endpoints difference:
         -> Returns single set of data from list of resources
         -> It is part of URL
         -> /api/products/ --> returns all products
@@ -48,7 +48,7 @@ This Week:
         }
 
     QUERY PARAM
-        --> We are not always getting data just path param for example library application sometimes we need to have how many books we have so path param is enough but if you would like to add books we should send some key and values or maybe you should call that specific book so you need to filter like:
+
             Book Name=Blindness
             Author=Jose Saramago
 
