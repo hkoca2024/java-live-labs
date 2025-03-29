@@ -54,7 +54,7 @@ public class P02_QueryParam extends FakeStoreTestBase {
  public void queryParam() {
 
      Map<String,Integer> queryMap= new HashMap<>();
-     queryMap.put("limit", 10);
+     queryMap.put("limit", 15);
      queryMap.put("offset", 0);
 
      //     * - Given accept type is Json
@@ -64,11 +64,11 @@ public class P02_QueryParam extends FakeStoreTestBase {
      Response response = given().accept(ContentType.JSON)
                                  //.queryParam("limit", 10)
                                  //.queryParam("offset", 0)
-                                 .queryParams(queryMap)
+                                 //.queryParams(queryMap)
                         .when().get("/products");
 
      //     * - And print response
-            response.prettyPrint();
+            //response.prettyPrint();
 
      //     * - Then verify status code should be 200
      int actualStatusCode = response.statusCode();
@@ -86,12 +86,23 @@ public class P02_QueryParam extends FakeStoreTestBase {
      }
 
      //     * - And verify each category has id
+     JsonPath jp = response.jsonPath();
+     List<Integer> allCatIDs = jp.getList("category.id");
 
+     for (Integer eachCatID : allCatIDs) {
+         assertNotNull(eachCatID);
+     }
 
      //     * - And verify each category has names
+     List<String> allCatNames = jp.getList("category.name");
+
+     for (String eachCatName : allCatNames) {
+         assertNotNull(eachCatName);
+     }
+
      //     * - And print the total number of titles
-
-
+    List <String> allTitles = jp.getList("title");
+     System.out.println("allTitles.size() = " + allTitles.size());
 
 
  }
